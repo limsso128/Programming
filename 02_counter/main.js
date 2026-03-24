@@ -47,17 +47,33 @@ const plusButton = document.getElementById('plusBtn');
 //     resultH1.innerHTML = count;
 // }
 
-function plus() {
-     // 숫자 증가하자
-    count++; //count += 1; //count = count +1;      
+// function plus() {
+//      // 숫자 증가하자
+//     count++; //count += 1; //count = count +1;      
 
-    // 숫자 표시하자
-    resultH1.innerHTML = count;
-}
+//     // 숫자 표시하자
+//     resultH1.innerHTML = count;
+// }
 
-function plus2() {
+// function plus2() {
+//      // 숫자 증가하자
+//     count += 2; //count += 1; //count = count +1;      
+
+//     // 숫자 표시하자
+//     resultH1.innerHTML = count;
+// }
+
+// function minus() {
+//      // 숫자 증가하자
+//     count--; //count += 1; //count = count +1;      
+
+//     // 숫자 표시하자
+//     resultH1.innerHTML = count;
+// }
+
+function plus(number=1) { //이렇게 코딩하자
      // 숫자 증가하자
-    count += 2; //count += 1; //count = count +1;      
+    count += number; //count += 1; //count = count +1;
 
     // 숫자 표시하자
     resultH1.innerHTML = count;
@@ -70,7 +86,3 @@ function minus() {
     // 숫자 표시하자
     resultH1.innerHTML = count;
 }
-// (함수정의)();
-// (function(){
-
-// } )()
