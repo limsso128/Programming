@@ -5,13 +5,13 @@
 // // 숫자 증가하자
 // let count = 0;
 // button.addEventListener('click', () => {
-//     count++;
+//     count++;S
   
 // // 숫자 표시하자
 //     h1.textContent = count;
 // }); 
 
-let count = 0;
+let count = 100;
 // HTML -> JS
 // const resultH1 = document.querySelector('h1')[0];
 // const plusButton = document.querySelector('button');    
@@ -71,6 +71,7 @@ const plusButton = document.getElementById('plusBtn');
 //     resultH1.innerHTML = count;
 // }
 
+resultH1.innerHTML = count; //처음 숫자 표시하자
 function plus(number=1) { //이렇게 코딩하자
      // 숫자 증가하자
     count += number; //count += 1; //count = count +1;
