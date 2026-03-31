@@ -14,7 +14,9 @@ function CounterApp() {
     <button onClick={() => setCount((count) => count + 1)}>+</button>
     <button onClick={() => setCount((count) => count + 2)}>+2</button>
     <button onClick={() => setCount((count) => count - 1)}>-</button>
-    
+    <button onClick={() => setCount(0)}>reset</button>
+    {/* <button onClick={setCount(0)}>reset</button> //Too many re-renders 에러 */}
+
     {/* <button
       className="counter"
       onClick={() => setCount((count) => count + 1)} //JS 함수호출X, 함수정의O
