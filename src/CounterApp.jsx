@@ -15,7 +15,15 @@ function CounterApp() {
     <button onClick={() => setCount((count) => count + 2)}>+2</button>
     <button onClick={() => setCount((count) => count - 1)}>-</button>
     <button onClick={() => setCount(0)}>reset</button>
-    {/* <button onClick={setCount(0)}>reset</button> //Too many re-renders 에러 */}
+
+    <button onClick={() => setCount((count) => {
+      if(count + 1 >= 10) return 10;
+      return count + 1;
+    })}>+(최대 10까지)</button>
+
+    <button onClick={() => setCount((count) => Math.min(count - 1, 10))}>-(최대까지)</button>
+
+    <button onClick={() => setCount((count) => count === 0 ? 10 : 0)}>reset</button>
 
     {/* <button
       className="counter"
