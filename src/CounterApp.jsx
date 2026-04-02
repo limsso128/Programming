@@ -8,6 +8,13 @@ function CounterApp() {
   //count: 이전 또는 현재 값.setCount: count값 변경 함수. 반드시 이걸 가져와야해
   const [count, setCount] = useState(0)
 
+  function plusMax10() {
+    setCount((count) => {
+      if(count + 1 >= 10) return 10;
+      return count + 1;
+    })
+  }
+
   return (
     <>
     <h1>{count}</h1>
@@ -25,12 +32,17 @@ function CounterApp() {
 
     <button onClick={() => setCount((count) => count === 0 ? 10 : 0)}>reset</button>
 
+    <button onClick={() => plusMax10()}>+(최대 10까지)</button>
+
+    <button onClick={plusMax10}>+(최대 10까지)</button>
+
     {/* <button
       className="counter"
       onClick={() => setCount((count) => count + 1)} //JS 함수호출X, 함수정의O
     >
       Count is {count}
     </button> */}
+    
     </>
   )
 }
