@@ -4,8 +4,10 @@ import { useState } from "react";
 export default function TodoAdder({ onAdd: addTodo }) {
   const[   inputtodo, setInputTodo] = useState("");
   const handleSubmit = (event) => {
-    event.preventDefault(); //기본 동작 막자
-    addTodo(inputtodo); //input에 있는 text value를 할 일 내용으로 추가하자자
+    event.preventDefault(); //기본 동작 
+    if(!inputTodo.trim()) return; //빈 칸이면 바로 return
+    addTodo(inputTodo.trim()); //input에 있는 text value를 할 일 내용으로 추가하자자
+    setInputTodo('');
   }
   
   return (
