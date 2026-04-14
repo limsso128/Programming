@@ -1,9 +1,22 @@
 import Button from "./Button.jsx";
+import { useState } from "react";
 
-export default function TodoAdder() {
+export default function TodoAdder({ onAdd: addTodo }) {
+  const[   inputtodo, setInputTodo] = useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault(); //기본 동작 막자
+    addTodo(inputtodo); //input에 있는 text value를 할 일 내용으로 추가하자자
+  }
+  
   return (
-    <form className="todo__form">
-      <input type="text" className="todo__input" placeholder="할 일을 입력하세요."/>
+    <form className="todo__form" onSubmit={handleSubmit}>
+      <input type="text" 
+      className="todo__input" 
+      placeholder="할 일을 입력하세요."
+      value = {inputtodo}
+      onChange={(event) => setInputTodo(event.target.value)}
+      />
+
       <Button type="submit" className="todo__button todo__button--add">Add</Button>
     </form>
   );
