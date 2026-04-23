@@ -47,6 +47,9 @@
 .todo__label{
     flex: 1;
 }
+.todo_input--edit{
+    flex-grow: 1;    /* 수정 입력창이 남은 공간을 모두 차지하도록 설정 */
+}
 .todo__button--edit,
 .todo__button--delete{
     font-size: 0.8em;
@@ -55,3 +58,4 @@
     text-decoration: line-through;   /* 완료된 아이템의 텍스트에 취소선 추가 */
     color: #999;     /* 완료된 아이템의 텍스트 색상을 회색으로 변경 */
 }
+
