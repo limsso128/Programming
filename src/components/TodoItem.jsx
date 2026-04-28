@@ -22,21 +22,21 @@ export default function TodoItem({todo, toggleTodo, deleteTodo, editTodo}) {
   return (
     //todo.isCompeted가 true면, " todo_item--complete", "false면, "" -> 삼항연산자
     <li className={`todo__item ${todo.isCompleted ? "todo__item--complete" : ""}`}>
-      { isEditing &&
+      { !isEditing &&
             <Checkbox 
               id={todo.id} 
               checked={todo.isCompleted} 
               onChange={() => toggleTodo(todo.id)}
             ><>{todo.text}</></Checkbox>
       }
-      { !isEditing && 
+      { isEditing && 
       <input
         type="text"
         className="todo_input--edit"
         value={editedText}
         onChange={(event) => setEditedText(event.target.value)}
-        //ender치면, hadleEditClick 호출하자
-        onKdeyDown={(event) => {
+        //enter치면, handleEditClick 호출하자
+        onKeyDown={(event) => {
           if(event.key === "Enter") {
             handleEditClick();
           }
@@ -48,7 +48,7 @@ export default function TodoItem({todo, toggleTodo, deleteTodo, editTodo}) {
             <Button
              className="todo__button todo__button--edit"
               onClick={handleEditClick}
-            >{isEditing ? "✏️" : "✅"}</Button>
+            >{isEditing ? "✅" : "✏️"}</Button>
             <Button 
               className="todo__button todo__button--delete"
               onClick={() => deleteTodo(todo.id)} 

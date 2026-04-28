@@ -7,6 +7,7 @@ import TodoAdder from "./components/TodoAdder.jsx"
 import TodoItem from "./components/TodoItem.jsx";
 import TodoList from "./components/TodoList.jsx";
 import {useState} from 'react';
+import { useEffect } from "react";
 
 class Todo {
   constructor(id, text, isCompleted) {
@@ -15,8 +16,24 @@ class Todo {
     this.isCompleted = isCompleted;
   }
 }
+
+const TODOS_STORAGE_KEY = "todos"; //Local Storage 용 key
+
 function TodoListApp() {
-  const [todos, setTodos] = useState([]);
+  const initTodos = () => {
+    // localStorage에서 가져오자
+    const savedTodos = localStorage.getItem(TODOS_STORAGE_KEY);
+    //값이 없으면 []
+    //값이 있으면 todos의 초기값을 대입하자
+    return (!savedTodos) ? [] : JSON.parse(savedTodos); //string -> JSON 객체 또는 리스트
+  }
+
+  const [todos, setTodos] = useState(initTodos);
+  //todos 변경 시, LocalStorage에 todos 저장하자
+  useEffect(() => {
+    localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos));
+  }, [todos]);
+
   function addTodo(text) {
     //이전 todos에 newTodo 만들어서 추가하자 -> 그것을 setTodos()로 업데이트하자
     setTodos((todos) => [
